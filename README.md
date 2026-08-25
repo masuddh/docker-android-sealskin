@@ -6,7 +6,7 @@ It uses the LinuxServer Selkies base image, Android API 34, and an x86_64 Google
 ## Build
 
 ```bash
-docker build -t masuddh/sealskin:1.0.1 .
+docker build -t masuddh/docker-android-sealkin:1.0.1 .
 ```
 
 ## SealSkin Configuration
@@ -16,7 +16,7 @@ Create or edit the Android Emulator app with these provider settings:
 ```yaml
 provider: docker
 provider_config:
-  image: masuddh/sealskin:1.0.1
+  image: masuddh/docker-android-sealkin:1.0.1
   port: 3000
   type: app
   url_support: true
@@ -38,4 +38,4 @@ The AVD enables hardware keyboard input so physical keys from the Selkies client
 
 ## Docker Hub
 
-https://hub.docker.com/r/masuddh/sealskin
+https://hub.docker.com/r/masuddh/docker-android-sealkin
