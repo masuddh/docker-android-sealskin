@@ -11,28 +11,31 @@ docker build -t masuddh/docker-android-sealkin:1.0.1 .
 
 ## SealSkin Configuration
 
-Create or edit the Android Emulator app with these provider settings:
+In SealSkin, open **Install My Custom App** and enter:
 
-```yaml
-provider: docker
-provider_config:
-  image: masuddh/docker-android-sealkin:1.0.1
-  port: 3000
-  type: app
-  url_support: true
-  open_support: true
-  autostart: false
-  docker_overrides: null
-```
+| Field | Value |
+| --- | --- |
+| Custom Name | `Android Emulator` |
+| Container Image | `masuddh/docker-android-sealkin:1.0.1` |
+| Allowed Users | `all` |
+| Allowed Groups | `all` |
+| GPU Support | Enabled |
+| Home Directory Mounting | Enabled |
+| URL Opening Support | Enabled |
+| File Opening Support | Enabled |
+| Auto Update Image | Enabled |
+| Application Template | `android` |
 
-Set both the regular and Wayland custom autostart scripts to:
+Set this in **Custom Autostart Script**:
 
 ```bash
 emulator -avd selkies-android -gpu swiftshader_indirect -no-boot-anim -accel auto
 ```
 
-Keep `docker_overrides` as `null`. The image already provides the Selkies desktop,
-Android SDK, AVD, and `/dev/kvm` support through the SealSkin runtime.
+Set the same command in **Custom Autostart Script (Wayland)**.
+
+Click **Save Installation**. Do not add Docker overrides; the image already provides
+the Selkies desktop, Android SDK, AVD, and `/dev/kvm` support through the SealSkin runtime.
 
 The AVD enables hardware keyboard input so physical keys from the Selkies client can reach Android.
 
